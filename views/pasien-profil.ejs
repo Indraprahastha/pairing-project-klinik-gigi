@@ -1,0 +1,43 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="margin-top:100px"class="container">
+
+  <input class="btn btn-warning" type="button" value="Go Back" onclick="history.back(-1)" />
+  <br>
+  <br>
+
+
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Nama Pasien</th>
+        <td><%= datapasien.nama %></td>
+      </tr>
+      <tr>
+        <th>Alamat</th>
+        <td><%= datapasien.alamat %></td>
+      </tr>
+      <tr>
+        <th>Pekerjaan</th>
+        <td><%= datapasien.pekerjaan %></td>
+      </tr>
+      <tr>
+        <th>Telepon / HP</th>
+        <td><%= datapasien.tlp %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= datapasien.email %></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/pasien/edit/<%= datapasien.id %>"><button class="btn btn-danger" type="button" name="button">Edit Data Profil</button></a>
+
+</div>
+
+</body>
+</html>

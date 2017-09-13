@@ -1,0 +1,38 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align:center">id</th>
+        <th style="text-align:center">Nama</th>
+        <th style="text-align:center">Alamat</th>
+        <th style="text-align:center">Pekerjaan</th>
+        <th style="text-align:center">Telepon / HP</th>
+        <th style="text-align:center">Email</th>
+        <th style="text-align:center">Input Diagnosa</th>
+        <th style="text-align:center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%datapasien.forEach((datapasien)=>{%>
+        <tr> <!--ini harus didalam forEachnya-->
+          <td><%=datapasien.id%></td>
+          <td><a href="/pasien/profil/<%= datapasien.id %>"><%=datapasien.nama%></a></td>
+          <td><%=datapasien.alamat%></td>
+          <td><%=datapasien.pekerjaan%></td>
+          <td><a href="tel:+6494461709"><%=datapasien.tlp%></a></td>
+          <td><%=datapasien.email%></td>
+          <td><a href="/pasien/inputdiagnosa/<%= datapasien.id %>">Input Diagnosa</a></td>
+          <td><a href="/pasien/edit/<%= datapasien.id %>">Edit</a></td>
+        </tr>
+      <%})%>
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

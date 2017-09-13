@@ -1,0 +1,27 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="margin-top:100px"class="container">
+  <form class="form-horizontal" action="/pasien/add" method="post">
+
+    <div style="width:45%;float:left;margin:5" class="">
+
+      <input class="form-control" type="text" name="nama" placeholder="Nama Pasien"><br>
+      <textarea class="form-control" name="alamat" cols="30" rows="5" placeholder="Alamat Pasien"></textarea><br>
+      <input class="form-control" type="text" name="pekerjaan" placeholder="Pekerjaan Pasien"><br>
+    </div>
+
+    <div style="width:45%;float:left;margin:5" class="">
+      <input class="form-control" type="text" name="tlp" placeholder="Telepon / HP Pasien"><br>
+      <input class="form-control" type="text" name="email" placeholder="Email Pasien"><br>
+      <button type="submit" name="submit">SIMPAN</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

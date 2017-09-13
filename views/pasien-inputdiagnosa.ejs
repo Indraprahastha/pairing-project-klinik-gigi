@@ -1,0 +1,60 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="margin-top:100px"class="container">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Nama Pasien</th>
+        <td><%= datapasien.nama %></td>
+      </tr>
+      <tr>
+        <th>Alamat</th>
+        <td><%= datapasien.alamat %></td>
+      </tr>
+      <tr>
+        <th>Pekerjaan</th>
+        <td><%= datapasien.pekerjaan %></td>
+      </tr>
+      <tr>
+        <th>Telepon / HP</th>
+        <td><%= datapasien.tlp %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= datapasien.email %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+  <form class="form-horizontal" action="/pasien/inputdiagnosa/<%= datapasien.id %>" method="post">
+
+    <div style="width:45%;float:left;margin:5" class="">
+      <select class="form-control" name="id_dokter">
+        <%datadokter.forEach((datadokter)=>{%>
+            <option value="<%=datadokter.id%>"><%= datadokter.nama %></option>
+        <%})%>
+      </select><br>
+      <input class="form-control" type="text" name="gigi" value="" placeholder="Input Gigi Bermasalah"><br>
+      <input class="form-control" type="text" name="gejala" value="" placeholder="Gejala">
+    </div>
+
+    <div style="width:45%;float:left;margin:5" class="">
+      <input class="form-control" type="text" name="tindakan" value="" placeholder="Tindakan"><br>
+      <input class="form-control" type="text" name="resep" value="" placeholder="Resep Dokter">
+
+      <br>
+      <button type="submit" name="submit">SIMPAN</button>
+    </div>
+
+  </form>
+
+
+</div>
+
+</body>
+</html>
