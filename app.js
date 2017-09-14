@@ -15,6 +15,6 @@ app.use('/', index)
 app.use('/pasien', pasien)
 app.use('/dokter', dokter)
 
-app.listen(3005, function(){
+app.listen(process.env.PORT || 3005, function(){
   console.log('Run... Run... Run...');
 })
