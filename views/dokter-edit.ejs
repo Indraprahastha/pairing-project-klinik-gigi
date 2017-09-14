@@ -1,0 +1,27 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="margin-top:100px"class="container">
+  <form class="form-horizontal" action="/dokter/edit/<%= Datadokter.id %>" method="post">
+
+    <div style="width:45%;float:left;margin:5" class="">
+      <input class="form-control" type="text" name="nama" value="<%= Datadokter.nama %>"><br>
+      <input class="form-control" type="text" name="noizin" value="<%= Datadokter.noizin %>"><br>
+      <textarea class="form-control" name="alamat" cols="30" rows="5"><%= Datadokter.alamat %></textarea><br>
+      <input class="form-control" type="text" name="nik" value="<%= Datadokter.nik %>"><br>
+    </div>
+
+    <div style="width:45%;float:left;margin:5" class="">
+      <input class="form-control" type="text" name="email" value="<%= Datadokter.email %>"><br>
+      <input class="form-control" type="text" name="tlp" value="<%= Datadokter.tlp %>"><br>
+      <button type="submit" name="submit">SIMPAN</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

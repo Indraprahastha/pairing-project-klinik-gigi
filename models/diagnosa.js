@@ -7,12 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     gejala: DataTypes.STRING,
     tindakan: DataTypes.STRING,
     resep: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  })
+  Diagnosa.associate = (models) => {
+    Diagnosa.belongsTo(models.Datapasien,{foreignKey: 'id_pasien'})
+    Diagnosa.belongsTo(models.Datadokter,{foreignKey: 'id_dokter'})
+  }
   return Diagnosa;
 };

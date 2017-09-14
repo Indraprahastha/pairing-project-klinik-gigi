@@ -12,6 +12,8 @@ module.exports = function(sequelize, DataTypes) {
   Datadokter.associate = function(models) {
     // associations can be defined here
     Datadokter.belongsToMany(models.Datapasien, {through: 'Diagnosa',foreignKey: 'id_dokter'});
+    //........
+    Datadokter.hasMany(models.Diagnosa, {foreignKey: 'id_dokter', sourceKey: 'id'});
   }
 
   return Datadokter;

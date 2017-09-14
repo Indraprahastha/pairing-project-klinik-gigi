@@ -1,0 +1,40 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align:center">id</th>
+        <th style="text-align:center">Nama</th>
+        <th style="text-align:center">Nomor Izin</th>
+        <th style="text-align:center">Alamat</th>
+        <th style="text-align:center">NIK</th>
+        <th style="text-align:center">Telepon / HP</th>
+        <th style="text-align:center">Email</th>
+        <th style="text-align:center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%Datadokter.forEach((Datadokter)=>{%>
+        <tr> <!--ini harus didalam forEachnya-->
+          <td><%=Datadokter.id%></td>
+          <td><a href="/pasien/profil/<%= Datadokter.id %>"><%=Datadokter.nama%></a></td>
+          <td><%=Datadokter.noizin%></td>
+          <td><%=Datadokter.alamat%></td>
+          <td><%=Datadokter.nik%></td>
+          <td><a href="tel:+62<%=Datadokter.tlp%>"><%=Datadokter.tlp%></a></td>
+          <td><a href="mailto:<%=Datadokter.email%>"><%=Datadokter.email%></a></td>
+          <td><a href="/dokter/edit/<%= Datadokter.id %>">Edit</a></td>
+          <td><a href="/dokter/delete/<%= Datadokter.id %>">Delete</a></td>
+        </tr>
+        </tr>
+      <%})%>
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

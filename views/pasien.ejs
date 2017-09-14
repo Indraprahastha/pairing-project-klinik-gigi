@@ -24,10 +24,12 @@
           <td><a href="/pasien/profil/<%= datapasien.id %>"><%=datapasien.nama%></a></td>
           <td><%=datapasien.alamat%></td>
           <td><%=datapasien.pekerjaan%></td>
-          <td><a href="tel:+6494461709"><%=datapasien.tlp%></a></td>
-          <td><%=datapasien.email%></td>
+          <td><a href="tel:+62<%=datapasien.tlp%>"><%=datapasien.tlp%></a></td>
+          <td><a href="mailto:<%=datapasien.email%>"><%=datapasien.email%></a></td>
           <td><a href="/pasien/inputdiagnosa/<%= datapasien.id %>">Input Diagnosa</a></td>
           <td><a href="/pasien/edit/<%= datapasien.id %>">Edit</a></td>
+          <td><a href="/pasien/delete/<%= datapasien.id %>">Delete</a></td>
+        </tr>
         </tr>
       <%})%>
 

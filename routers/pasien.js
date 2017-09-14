@@ -64,14 +64,55 @@ router.post('/edit/:id', (req,res) => {
   })
 })
 //-------------------------------------------- view data pasien
-router.get('/profil/:id', (req, res)=>{
-  models.Datapasien.findById(req.params.id)
-  .then((datapasien) => {
-    res.render('pasien-profil', {datapasien:datapasien})
-  })
-})
+// router.get('/profil/:id', (req, res)=>{
+//   models.Datapasien.findById(req.params.id)
+//   .then((datapasien) => {
+//     res.render('pasien-profil', {datapasien:datapasien})
+//   })
+// })
 
-//-------------------------------------------- ????????????????
+router.get('/profil/:id', function(req, res) {
+
+  // versi bener
+  models.Diagnosa.findAll({
+    include: [{
+      model: models.Datapasien,
+      model: models.Datadokter
+    }],
+    where: {
+      id_pasien: `${req.params.id}`
+    }
+  }).then(function(Datapasien) {
+    models.Datapasien.findAll({
+      where: {
+        id: `${req.params.id}`
+      }
+    }).then(function(Datapasien_satu){
+      res.render('pasien-profil',{Datapasien:Datapasien,Datapasien_satu:Datapasien_satu});
+      // res.send(Datapasien)
+    })
+    // console.log("-----------", Datapasien);
+    // res.send(Datapasien)
+    // res.render('subject-enrolledstudents',{})
+
+  });
+
+
+  // models.Datapasien.findAll({
+  //   where: {
+  //     id: `${req.params.id}`
+  //   },
+  //   include: [models.Diagnosa]
+  // }).then(function(Datapasien) {
+  //   console.log("-----------", Datapasien[0].Diagnosas);
+  //   // res.render('subject',{dataSubjects:Subject});
+  //   res.send(Datapasien)
+  //   // res.render('subject-enrolledstudents',{})
+  //
+  // });
+});
+
+//--------------------------------------------- add data pasien
 router.get('/add', function(req, res) {
   res.render('pasien-add',{err: false});
 })
@@ -89,7 +130,16 @@ router.post('/add',function (req, res) {
 })
 
 //-------------------------------------------- ????????????????
-
+router.get('/delete/:id', (req, res) => {
+  models.Datapasien.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(()=>{
+    res.redirect('/pasien')
+  })
+})
 
 
 module.exports = router
